@@ -1,6 +1,5 @@
 package com.example.kmm.android
 
-import TestClass
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
