@@ -1,6 +1,7 @@
 package di
 
 import org.kodein.di.DirectDI
+import org.kodein.di.instance
 
 object Inject {
     private var _di: DirectDI? = null
@@ -9,5 +10,9 @@ object Inject {
 
     fun createDependencies (tree: DirectDI) {
         _di = tree
+    }
+
+    inline fun<reified T> instance(): T {
+        return di.instance()
     }
 }

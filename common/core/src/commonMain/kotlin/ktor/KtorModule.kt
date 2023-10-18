@@ -9,6 +9,7 @@ import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.logging.Logger
 import io.ktor.client.features.logging.Logging
 import io.ktor.client.features.logging.SIMPLE
+import io.ktor.client.request.header
 import io.ktor.client.request.url
 import org.kodein.di.DI
 import org.kodein.di.bind
@@ -27,13 +28,14 @@ internal val ktorModule = DI.Module("ktorModule") {
                 serializer = KotlinxSerializer(json = instance())
             }
 
-            install(HttpTimeout){
+            install(HttpTimeout) {
                 connectTimeoutMillis = 15000
                 requestTimeoutMillis = 30000
             }
 
             defaultRequest {
-               url("https://playzone-backend.herokuapp.com/")
+                header("Content-Type", "application/json; charset=UTF-8")
+                //url("http://0.0.0.0:8080")
             }
         }
     }
