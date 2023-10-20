@@ -1,15 +1,23 @@
 import org.gradle.api.JavaVersion
 
-plugins{
-    id ("com.android.library")
+plugins {
+    id("com.android.library")
 }
 
 android {
-    compileSdk = 30
+    compileSdk = 33
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 24
         targetSdk = 33
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
     }
 
     compileOptions {
