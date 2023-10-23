@@ -1,8 +1,9 @@
 package login
 
-import GamesRepository
+import AuthRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
+import kotlinx.coroutines.launch
 import login.model.LoginAction
 import login.model.LoginEvent
 import login.model.LoginViewState
@@ -10,7 +11,7 @@ import login.model.LoginViewState
 class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent>(
     initialState = LoginViewState(email = "", password = "")
 ) {
-    private val gamesRepository: GamesRepository = Inject.instance()
+    private val authRepository: AuthRepository = Inject.instance()
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
@@ -18,11 +19,25 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
             is LoginEvent.LoginClick -> sendLogin()
             is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
             is LoginEvent.RegistrationClick -> openRegistration()
+            is LoginEvent.PasswordShowClick -> changePasswordVisibility()
         }
     }
 
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
+        viewModelScope.launch {
+            try {
+                val response = authRepository.login(viewState.email, viewState.password)
+                if (response.token.isNotBlank()) {
+                    viewState = viewState.copy(email = "", password = "", isSending = false)
+                } else {
+                    viewState = viewState.copy(isSending = false)
+                }
+                viewState = viewState.copy(email = "", password = "", isSending = false)
+            } catch (e: Exception) {
+                viewState = viewState.copy(isSending = false)
+            }
+        }
     }
 
     private fun openForgot() {
@@ -31,6 +46,10 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
 
     private fun openRegistration() {
         viewAction = LoginAction.OpenRegistrationScreen
+    }
+
+    private fun changePasswordVisibility() {
+        viewState = viewState.copy(passwordHidden = !viewState.passwordHidden)
     }
 
     private fun obtainEmailChanged(value: String) {

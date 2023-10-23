@@ -6,12 +6,12 @@ import org.kodein.di.singleton
 import platform.PlatformConfiguration
 
 object PlatformSDK {
-    fun init (
+    fun init(
         configuration: PlatformConfiguration
     ) {
         val umbrellaModule = DI.Module(
             name = "umbrella",
-            init ={
+            init = {
                 bind<PlatformConfiguration>() with singleton { configuration }
             }
         )
@@ -21,7 +21,8 @@ object PlatformSDK {
                 importAll(
                     umbrellaModule,
                     coreModule,
-                    gamesModule
+                    gamesModule,
+                    authModule
                 )
             }.direct
         )
