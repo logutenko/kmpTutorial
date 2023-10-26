@@ -20,9 +20,31 @@ kotlin {
             export(project(":common:auth:api"))
             export(project(":common:auth:presentation"))
             export(project(":common:games:api"))
-            export(project(":common:games:presentation"))
-            export(project(":common:tournaments:api"))
-            export(project(":common:tournaments:presentation"))
+            export(project(":common:umbrella-core"))
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(project(":common:core"))
+                implementation(project(":common:core-utils"))
+                implementation(project(":common:auth:api"))
+                implementation(project(":common:auth:presentation"))
+                implementation(project(":common:games:api"))
+                implementation(project(":common:umbrella-core"))
+            }
+        }
+
+        iosMain {
+            dependencies {
+                api(project(":common:core"))
+                api(project(":common:core-utils"))
+                api(project(":common:auth:api"))
+                api(project(":common:auth:presentation"))
+                api(project(":common:games:api"))
+                api(project(":common:umbrella-core"))
+            }
         }
     }
 }

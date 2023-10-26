@@ -1,11 +1,16 @@
 import SwiftUI
-import shared
+import SharedSDK
 
 struct ContentView: View {
-	let greet = Greeting().greet()
+    private let viewModel = LoginViewModel()
+       
 
 	var body: some View {
-		Text(greet)
+        Button {
+           // viewModel.obtainEvent(viewEvent: .LoginClick())
+        } label: {
+            Text("Hello, iOS")
+        }
 	}
 }
 
