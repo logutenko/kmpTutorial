@@ -12,6 +12,10 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		4804D437696350E81A8FF14D /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AE0F9B2AFE1329F276ECE0 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		C98E623A2AEB945E0064990D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62392AEB945E0064990D /* LoginView.swift */; };
+		C98E623D2AEB9CAD0064990D /* Color + Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E623C2AEB9CAD0064990D /* Color + Custom.swift */; };
+		C98E62402AEBB4070064990D /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E623F2AEBB4070064990D /* CommonTextField.swift */; };
+		C98E62432AEBCE530064990D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62422AEBCE530064990D /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98E62392AEB945E0064990D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C98E623C2AEB9CAD0064990D /* Color + Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Custom.swift"; sourceTree = "<group>"; };
+		C98E623F2AEBB4070064990D /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
+		C98E62422AEBCE530064990D /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				C98E62372AEB92D00064990D /* Screens */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -91,6 +100,41 @@
 				52AE0F9B2AFE1329F276ECE0 /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C98E62372AEB92D00064990D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C98E623E2AEBB3D30064990D /* Views */,
+				C98E623B2AEB9C870064990D /* Utils */,
+				C98E62382AEB92F30064990D /* Login */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C98E62382AEB92F30064990D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C98E62392AEB945E0064990D /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C98E623B2AEB9C870064990D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C98E623C2AEB9CAD0064990D /* Color + Custom.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C98E623E2AEBB3D30064990D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C98E623F2AEBB4070064990D /* CommonTextField.swift */,
+				C98E62422AEBCE530064990D /* ActionButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +233,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98E623D2AEB9CAD0064990D /* Color + Custom.swift in Sources */,
+				C98E623A2AEB945E0064990D /* LoginView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				C98E62402AEBB4070064990D /* CommonTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				C98E62432AEBCE530064990D /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

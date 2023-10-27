@@ -1,6 +1,6 @@
 object Dependencies {
     object Kodein {
-        const val core = "org.kodein.di:kodein-di:7.1.0"
+        const val core = "org.kodein.di:kodein-di:7.13.1"
     }
 
     object Kotlin {
