@@ -3,6 +3,11 @@ object Dependencies {
         const val core = "org.kodein.di:kodein-di:7.13.1"
     }
 
+    object Settings {
+        const val core = "com.russhwolf:multiplatform-settings:1.0.0-RC"
+        const val noargs = "com.russhwolf:multiplatform-settings-no-arg:1.0.0-RC"
+    }
+
     object Kotlin {
         private const val version = "1.7.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"

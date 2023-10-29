@@ -12,6 +12,11 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
     initialState = LoginViewState(email = "", password = "")
 ) {
     private val authRepository: AuthRepository = Inject.instance()
+
+    init {
+        checkUserLoggedIn()
+    }
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
@@ -22,6 +27,13 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
             is LoginEvent.PasswordShowClick -> changePasswordVisibility()
         }
     }
+
+    private fun checkUserLoggedIn() {
+        if (authRepository.isUserLoggedIn()) {
+            viewAction = LoginAction.OpenMainFlow
+        }
+    }
+
 
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
