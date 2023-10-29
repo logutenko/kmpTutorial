@@ -10,6 +10,6 @@ object NavigationTree {
     }
 
     enum class Main {
-        Dashboard, Home, Search, Events, Videos, Profile
+        Dashboard, Home, Search, Events, Videos, Profile, Game
     }
 }
