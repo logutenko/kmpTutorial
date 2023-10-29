@@ -8,6 +8,14 @@ object Dependencies {
         const val noargs = "com.russhwolf:multiplatform-settings-no-arg:1.0.0-RC"
     }
 
+    object Image {
+        object Coil {
+            const val version = "2.2.2"
+            const val core = "io.coil-kt:coil:2.2.2"
+            const val compose = "io.coil-kl:coil-compose:2.2.2"
+        }
+    }
+
     object Kotlin {
         private const val version = "1.7.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"

@@ -41,7 +41,7 @@ internal val ktorModule = DI.Module("ktorModule") {
 
             defaultRequest {
                 header("Content-Type", "application/json; charset=UTF-8")
-                url("http://192.168.15.237:8080")
+                url("http://192.168.15.233:8080")
             }
         }
     }
