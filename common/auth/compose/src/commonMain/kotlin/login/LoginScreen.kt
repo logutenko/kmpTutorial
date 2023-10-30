@@ -39,7 +39,5 @@ fun LoginScreen() {
 
             null -> {}
         }
-
-
     }
 }

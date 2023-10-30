@@ -19,7 +19,10 @@ class AuthRepositoryImpl(
     }
 
     override fun isUserLoggedIn(): Boolean {
-        //return cashedDataSource.fetchToken().isNotBlank()
-        return true
+        return cashedDataSource.fetchToken().isNotBlank()
+    }
+
+    override fun fetchToken(): String {
+        return cashedDataSource.fetchToken()
     }
 }

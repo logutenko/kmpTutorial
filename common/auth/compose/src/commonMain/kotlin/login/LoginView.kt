@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import login.model.LoginEvent
 import login.model.LoginViewState
 import theme.Theme
+import widget.CommonTextField
 
 @Composable
 fun LoginView(state: LoginViewState, eventHandler: (LoginEvent) -> Unit) {
@@ -54,48 +55,17 @@ fun LoginView(state: LoginViewState, eventHandler: (LoginEvent) -> Unit) {
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        TextField(modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp),
-            value = state.email,
-            enabled = !state.isSending,
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFF1F2430),
-                textColor = Color(0xFF696C75),
-                cursorColor = Theme.colors.highlightTextColor,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            placeholder = {
-                Text("Your login", color = Theme.colors.hintTextColor)
-            },
-            shape = RoundedCornerShape(10.dp),
-            onValueChange = {
-                eventHandler.invoke(LoginEvent.EmailChanged(value = it))
-            })
+        CommonTextField(text = state.email, hint = "Your login", isEnabled = !state.isSending) {
+            eventHandler.invoke(LoginEvent.EmailChanged(value = it))
+        }
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        TextField(modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp),
-            value = state.password,
-            enabled = !state.isSending,
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFF1F2430),
-                textColor = Color(0xFF696C75),
-                cursorColor = Theme.colors.highlightTextColor,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            visualTransformation = if (state.passwordHidden) {
-                PasswordVisualTransformation()
-            } else {
-                VisualTransformation.None
-            },
-            placeholder = {
-                Text("Your password", color = Theme.colors.hintTextColor)
-            },
+        CommonTextField(
+            text = state.password,
+            hint = "Your password",
+            isEnabled = !state.isSending,
+            isSecure = state.passwordHidden,
             trailingIcon = {
                 Icon(
                     modifier = Modifier.clickable {
@@ -106,11 +76,10 @@ fun LoginView(state: LoginViewState, eventHandler: (LoginEvent) -> Unit) {
                         Icons.Outlined.Lock
                     }, contentDescription = "Password hidden", tint = Theme.colors.hintTextColor
                 )
-            },
-            shape = RoundedCornerShape(10.dp),
-            onValueChange = {
-                eventHandler.invoke(LoginEvent.PasswordChanged(value = it))
-            })
+            }
+        ) {
+            eventHandler.invoke(LoginEvent.PasswordChanged(value = it))
+        }
 
         Spacer(modifier = Modifier.height(30.dp))
 

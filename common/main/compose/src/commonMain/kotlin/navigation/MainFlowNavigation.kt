@@ -18,6 +18,7 @@ fun RootComposeBuilder.mainFlow() {
         name = NavigationTree.Main.Dashboard.name,
         tabsNavModel = BottomConfiguration()
     ) {
+        println("Test Main flow")
         tab(HomeTab()) {
             screen(name = NavigationTree.Main.Home.name) {
                 HomeScreen()

@@ -14,7 +14,7 @@ import theme.Theme
 
 fun ComponentActivity.setupThemedNavigation() {
     val rootController = RootComposeBuilder().apply {
-        generateGraph()
+        generateGraph(NavigationSource.Android)
     }.build()
     rootController.setupWithActivity(this)
     rootController.setupWithViewModels()
