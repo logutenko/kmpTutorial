@@ -1,6 +1,7 @@
 object Dependencies {
-    object Kodein {
-        const val core = "org.kodein.di:kodein-di:7.13.1"
+    object Koin {
+        const val version = "3.2.0"
+        const val core = "io.insert-koin:koin-core:${version}"
     }
 
     object Settings {

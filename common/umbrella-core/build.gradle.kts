@@ -14,7 +14,7 @@ kotlin {
                 implementation(project(":common:games:data"))
                 implementation(project(":common:tournaments:data"))
 
-                implementation(Dependencies.Kodein.core)
+                implementation(Dependencies.Koin.core)
             }
         }
     }

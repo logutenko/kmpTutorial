@@ -1,30 +1,24 @@
-import di.Inject
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.direct
-import org.kodein.di.singleton
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 import platform.PlatformConfiguration
 
 object PlatformSDK {
-    fun init(
+    fun initKoin(
         configuration: PlatformConfiguration
     ) {
-        val umbrellaModule = DI.Module(
-            name = "umbrella",
-            init = {
-                bind<PlatformConfiguration>() with singleton { configuration }
+        val umbrellaModule = module {
+            single {
+                configuration
             }
-        )
+        }
 
-        Inject.createDependencies(
-            DI {
-                importAll(
+        startKoin {
+            modules(
                     umbrellaModule,
                     coreModule,
                     gamesModule,
                     authModule
-                )
-            }.direct
-        )
+            )
+        }
     }
 }

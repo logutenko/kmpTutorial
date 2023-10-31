@@ -1,11 +1,11 @@
 import database.databaseModule
 import json.serializationModule
 import ktor.ktorModule
-import org.kodein.di.DI
+import org.koin.dsl.module
 import settings.settingsModule
 
-val coreModule = DI.Module("coreModule") {
-    importAll (
+val coreModule = module {
+    includes(
         serializationModule,
         databaseModule,
         ktorModule,

@@ -1,10 +1,9 @@
 package settings
 
 import com.russhwolf.settings.Settings
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.singleton
+import org.koin.core.module.dsl.singleOf
+import org.koin.dsl.module
 
-internal val settingsModule = DI.Module("settingsModule") {
-    bind<Settings>() with singleton { Settings() }
+internal val settingsModule = module {
+    singleOf(::Settings)
 }

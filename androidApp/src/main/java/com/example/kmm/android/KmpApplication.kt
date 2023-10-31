@@ -13,6 +13,6 @@ class KmpApplication: Application() {
 }
 
 fun KmpApplication.initPlatformSDK() =
-    PlatformSDK.init(
+    PlatformSDK.initKoin(
         configuration = PlatformConfiguration(androidContext = applicationContext)
     )

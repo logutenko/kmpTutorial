@@ -4,7 +4,7 @@ import javax.swing.JFrame
 import javax.swing.SwingUtilities
 
 fun main() = SwingUtilities.invokeLater {
-    PlatformSDK.init(
+    PlatformSDK.initKoin(
         configuration = PlatformConfiguration()
     )
 

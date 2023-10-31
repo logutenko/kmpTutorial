@@ -1,18 +1,10 @@
 package di
 
-import org.kodein.di.DirectDI
-import org.kodein.di.instance
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
 
-object Inject {
-    private var _di: DirectDI? = null
-    val di: DirectDI
-        get() = requireNotNull(_di)
-
-    fun createDependencies (tree: DirectDI) {
-        _di = tree
-    }
-
+object Inject: KoinComponent {
     inline fun<reified T> instance(): T {
-        return di.instance()
+        return get()
     }
 }
