@@ -14,7 +14,7 @@ import models.Game
 class KtorGamesDataSource(private val httpClient: HttpClient) {
     suspend fun fetchAllGames(): List<KtorSearchGame> {
         return httpClient.post {
-            header("Bearer-Authorization", "d6bd3259-bd84-4695-afef-785e715e11d7")
+            header("Bearer-Authorization", "bf8487ae-7d47-11ec-90d6-0242ac120003")
 
             url {
                 path("games/search")
@@ -25,7 +25,7 @@ class KtorGamesDataSource(private val httpClient: HttpClient) {
 
     suspend fun searchGame(query: String): List<KtorSearchGame> {
         return httpClient.post {
-            header("Bearer-Authorization", "d6bd3259-bd84-4695-afef-785e715e11d7")
+            header("Bearer-Authorization", "bf8487ae-7d47-11ec-90d6-0242ac120003")
 
             url {
                 path("games/search")

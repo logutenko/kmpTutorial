@@ -15,14 +15,14 @@ struct SearchView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Spacer().frame(height: 26)
                 CommonTextField(hint: "Search Game") { newValue in
                     eventHandler(SearchEvent.QueryChanged(query: newValue))
                 }
                 Spacer().frame(height: 16)
                 ScrollView {
-                    VStack {
+                    VStack(alignment: .leading) {
                         ForEach(viewState.games, id: \.gameId) { game in
                             VStack (alignment: .leading) {
                                 Text(game.title)

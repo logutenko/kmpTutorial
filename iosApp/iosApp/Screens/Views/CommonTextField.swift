@@ -34,7 +34,7 @@ struct CommonTextField: View {
             if (value.isEmpty) {
                 Text(hint)
                     .foregroundColor(Color.textPrimary.opacity(0.5))
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .font(.system(size: 16))
                 
                 
@@ -47,7 +47,7 @@ struct CommonTextField: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .disabled(!enabled)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .onChange(of: value) {newValue in
                         onValueChanged(newValue)
                     }
@@ -58,7 +58,7 @@ struct CommonTextField: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .disabled(!enabled)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .onChange(of: value) {newValue in
                         onValueChanged(newValue)
                     }
@@ -67,7 +67,7 @@ struct CommonTextField: View {
 
         }
         .frame(height: 56)
-        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 24))
     }
 }
 

@@ -22,40 +22,42 @@ import theme.Theme
 @Composable
 fun SearchView(viewState: SearchViewState, eventHandler: (SearchEvent) -> Unit) {
     Column {
-        TextField(modifier = Modifier
-            .padding(16.dp)
-            .fillMaxWidth()
-            .height(56.dp),
-            value = viewState.query,
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFF1F2430),
-                textColor = Color(0xFF696C75),
-                cursorColor = Theme.colors.highlightTextColor,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
-            ),
-            placeholder = {
-                Text("Search game", color = Theme.colors.hintTextColor)
-            },
-            shape = RoundedCornerShape(10.dp),
-            onValueChange = {
-                eventHandler.invoke(SearchEvent.QueryChanged(it))
-            })
-    }
+        Column {
+            TextField(modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+                .height(56.dp),
+                value = viewState.query,
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color(0xFF1F2430),
+                    textColor = Color(0xFF696C75),
+                    cursorColor = Theme.colors.highlightTextColor,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+                placeholder = {
+                    Text("Search game", color = Theme.colors.hintTextColor)
+                },
+                shape = RoundedCornerShape(10.dp),
+                onValueChange = {
+                    eventHandler.invoke(SearchEvent.QueryChanged(it))
+                })
+        }
 
-    LazyColumn {
-        viewState.games.forEach {
-            item {
-                Text(
-                    modifier = Modifier
-                        .clickable { eventHandler.invoke(SearchEvent.GameClicked) }
-                        .padding(
-                            start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp
-                        ),
-                    text = it.title,
-                    color = Theme.colors.secondaryTextColor,
-                    fontWeight = FontWeight.Medium
-                )
+        LazyColumn {
+            viewState.games.forEach {
+                item {
+                    Text(
+                        modifier = Modifier
+                            .clickable { eventHandler.invoke(SearchEvent.GameClicked) }
+                            .padding(
+                                start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp
+                            ),
+                        text = it.title,
+                        color = Theme.colors.secondaryTextColor,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
             }
         }
     }

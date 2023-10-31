@@ -6,7 +6,7 @@ import models.Game
 
 @Serializable
 data class KtorSearchGame (
-    @SerialName("gameID") val gameId: String,
+    @SerialName("gameid") val gameId: String,
     @SerialName("title") val title: String,
     @SerialName("description") val description: String,
     @SerialName("version") val version: String,

@@ -42,7 +42,7 @@ class CreateGameViewModel :
             try {
                 val token = authRepository.fetchToken()
                 gamesRepository.createGame(
-                    token = token,
+                    token = "bf8487ae-7d47-11ec-90d6-0242ac120003",
                     info = CreateGameInfo(
                         title = viewState.title,
                         description = viewState.description,

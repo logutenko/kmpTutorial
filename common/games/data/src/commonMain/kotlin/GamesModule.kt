@@ -11,7 +11,7 @@ val gamesModule = DI.Module("gamesModule") {
         KtorGamesDataSource(instance())
     }
     bind<SqlDelightGamesDataSource>() with provider {
-        SqlDelightGamesDataSource()
+        SqlDelightGamesDataSource(instance())
     }
 
     bind<GamesRepository>() with singleton {
